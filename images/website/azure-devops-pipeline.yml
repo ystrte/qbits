@@ -6,7 +6,7 @@ trigger:
     - master
 
 pool:
-  name: ubuntu-latest
+  vmImage: ubuntu-latest
 
 variables:
 - group: qbits
