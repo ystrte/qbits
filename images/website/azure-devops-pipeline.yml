@@ -1,0 +1,13 @@
+pool:
+  name: Azure Pipelines
+
+variables:
+- group: qbits
+
+steps:
+- bash: |
+   docker login --username=captaind0cker --password=$(dockerPassword)
+   docker build -t captaind0cker/qbits:$(Build.BuildId) images/website
+   docker push captaind0cker/qbits:$(Build.BuildId)
+  displayName: 'Build and push docker image'
+
