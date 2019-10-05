@@ -1,5 +1,12 @@
+name: $(Date:yyyyMMdd).$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+    - master
+
 pool:
-  name: Azure Pipelines
+  name: ubuntu-latest
 
 variables:
 - group: qbits
