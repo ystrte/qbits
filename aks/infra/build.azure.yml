@@ -1,0 +1,40 @@
+name: $(Date:yyyyMMdd).$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+    - aks
+  paths:
+    include:
+    - aks/infra
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+- name: SYSTEM_NAME
+  value: aks
+- name: SUB_DIR
+  value: infra
+
+steps:
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)/$(SYSTEM_NAME)/$(SUB_DIR)'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      CleanTargetFolder: false
+      OverWrite: true
+
+#  - task: CopyFiles@2
+#    displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+#    inputs:
+#      SourceFolder: '$(Build.SourcesDirectory)/Systems/$(SYSTEM_NAME)/parameters'
+#      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+#      CleanTargetFolder: false
+#      OverWrite: true
+      
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: drop
