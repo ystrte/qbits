@@ -1,2 +1,4 @@
 name: csi-secrets-store
 apiVersion: v2
+version: 0.0.17
+repository: https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
