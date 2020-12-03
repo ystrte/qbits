@@ -1,1 +1,2 @@
 name: csi-secrets-store
+apiVersion: v2
