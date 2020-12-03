@@ -1,4 +1,4 @@
 dependencies:
-- name: secrets-store-csi-driver
-  version: 0.0.17
+- name: csi-secrets-store-provider-azure
+  version: 0.0.14
   repository: https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
